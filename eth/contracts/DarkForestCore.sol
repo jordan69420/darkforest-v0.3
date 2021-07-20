@@ -511,4 +511,7 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
         );
         emit PlanetUpgraded(_location);
     }
+    function StripMine(_location) public {
+       
+    }
 }
