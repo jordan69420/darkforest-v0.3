@@ -29,10 +29,13 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 // ADDING STORAGE VARIABLES HERE WI LL BLOCK ANY STORAGE CONTRACTS FROM EVER
 // ADDING THEIR OWN VARIABLES EVER AGAIN.
 
-contract DarkForestCore is Initializable, DarkForestStorageV1 {
+contract DarkForestCore is Initializable, DarkForestStorageV1, ERC20 {
     using ABDKMath64x64 for *;
     using SafeMath for *;
     using Math for uint256;
+    
+    _name = "CryptoTrades 2 silver"
+    _symbol = "AG"
 
     event PlayerInitialized(address player, uint256 loc);
     event ArrivalQueued(uint256 arrivalId);
