@@ -12,6 +12,7 @@ import "./DarkForestUtils.sol";
 import "./DarkForestPlanet.sol";
 import "./DarkForestLazyUpdate.sol";
 import "./DarkForestInitialize.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
 
 // .______       _______     ___       _______  .___  ___.  _______
 // |   _  \     |   ____|   /   \     |       \ |   \/   | |   ____|
