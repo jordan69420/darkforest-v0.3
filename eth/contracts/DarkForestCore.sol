@@ -512,7 +512,7 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
         emit PlanetUpgraded(_location);
     }
     function StripMine(_location) public {
-       if (_locationIdValid(_location)) {
+    if(planets[_location].owner == msg.sender) {
           if (planets[_location] != null) {
              //add some minerals to the playerBal
              planets[_location] = null;
