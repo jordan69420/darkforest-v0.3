@@ -34,7 +34,7 @@ contract DarkForestCore is Initializable, DarkForestStorageV1, ERC20 {
     using SafeMath for *;
     using Math for uint256;
     
-    _name = "CryptoTrades 2 silver"
+    _name = "CryptoTrades v2 silver"
     _symbol = "AG"
 
     event PlayerInitialized(address player, uint256 loc);
