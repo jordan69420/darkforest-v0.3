@@ -512,7 +512,7 @@ contract DarkForestCore is Initializable, DarkForestStorageV1 {
         );
         emit PlanetUpgraded(_location);
     }
-    function StripMine(_location) public {
+    function WithdrawSilver(_location) public {
     if(planets[_location].owner == msg.sender) {
           if (planets[_location] != null) {
              _mint(planets[location].silver / 10 ** 5)
