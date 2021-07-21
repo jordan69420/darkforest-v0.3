@@ -3,9 +3,9 @@ require("dotenv").config({ path: `./.env.prod` });
 
 module.exports = {
   networks: {
-    development: {
-      protocol: "http",
-      host: "localhost",
+    Expanse: {
+      protocol: "https",
+      host: "node.eggs.cool/rpc",
       port: 8545,
       gas: 8000000,
       gasPrice: 5e9,
