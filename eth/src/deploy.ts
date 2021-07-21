@@ -54,7 +54,7 @@ if (DISABLE_ZK_CHECKS) {
 const network_url =
   NETWORK === Network.Ropsten
     ? `https://ropsten.infura.io/v3/${PROJECT_ID}`
-    : "http://localhost:8545";
+    : "https://node.eggs.cool/rpc";
 
 const exec = async (command: string) => {
   const { error, stdout, stderr } = await rawExec(command);
