@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.6.9;
 
-import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
+import "./token.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/math/Math.sol";
 import "./ABDKMath64x64.sol";
 import "./DarkForestTypes.sol";
