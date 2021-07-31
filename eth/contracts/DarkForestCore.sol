@@ -4,7 +4,6 @@ pragma experimental ABIEncoderV2;
 
 // Import base Initializable contract
 import "@openzeppelin/upgrades/contracts/Initializable.sol";
-import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts-ethereum-package/contracts/math/Math.sol";
 import "./Verifier.sol";
 import "./DarkForestStorageV1.sol";
@@ -12,7 +11,7 @@ import "./DarkForestUtils.sol";
 import "./DarkForestPlanet.sol";
 import "./DarkForestLazyUpdate.sol";
 import "./DarkForestInitialize.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol";
+import "./token.sol";
 
 // .______       _______     ___       _______  .___  ___.  _______
 // |   _  \     |   ____|   /   \     |       \ |   \/   | |   ____|
@@ -29,13 +28,10 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 // ADDING STORAGE VARIABLES HERE WI LL BLOCK ANY STORAGE CONTRACTS FROM EVER
 // ADDING THEIR OWN VARIABLES EVER AGAIN.
 
-contract DarkForestCore is Initializable, DarkForestStorageV1, ERC20 {
+contract DarkForestCore is Initializable, DarkForestStorageV1, BaseToken("CryptoTrades v2 silver", "AG", 18, 1000, true, true, 1) {
     using ABDKMath64x64 for *;
     using SafeMath for *;
     using Math for uint256;
-    
-    _name = "CryptoTrades v2 silver"
-    _symbol = "AG"
 
     event PlayerInitialized(address player, uint256 loc);
     event ArrivalQueued(uint256 arrivalId);
@@ -515,12 +511,12 @@ contract DarkForestCore is Initializable, DarkForestStorageV1, ERC20 {
         );
         emit PlanetUpgraded(_location);
     }
-    function WithdrawSilver(_location) public {
-    if(planets[_location].owner == msg.sender) {
-          if (planets[_location] != null) {
-             _mint(planets[location].silver / 10 ** 5)
-             planets[_location].silver = 0;
-          }
-       }
+    function WithdrawSilver(uint256 _location) public {
+        if(planets[_location].owner == msg.sender) {
+            if (planets[_location].silver >= 0) {
+            _mint(msg.sender, planets[_location].silver / 10 ** 5);
+            planets[_location].silver = 0;
+           }
+        }
     }
 }
